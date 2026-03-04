@@ -165,9 +165,7 @@ canvas{
 <!-- ================= HEADER ================= -->
 <header class="header">
   <div class="logo">TradeRoom</div>
-  <p>SOL:9PMiUwH1wsZj8ja98B3V6pNGSzt
-    2ZaKU9t2c814JhQxm 
-    STATUS(connected )</p>
+  <p>(Verifying connection )</p>
   <button id="themeToggle" class="theme-btn"></button>
 </header>
 
@@ -414,20 +412,20 @@ animate();
 function resetProgressBar(){
   const bar=document.getElementById("depositProgressBar");
   bar.style.width="0%";
-  bar.textContent="600s";
+  bar.textContent="30s";
 }
 function confirmDeposit(){
   let amount=parseFloat(document.getElementById("depositAmount").value);
   if(!amount||amount<=0) return;
   
   const bar=document.getElementById("depositProgressBar");
-  let countdown=600;
+  let countdown=30;
   bar.style.width="0%";
   bar.textContent=`${countdown}s`;
   
   const interval = setInterval(()=>{
     countdown--;
-    bar.style.width = ((600-countdown)/600*100)+"%";
+    bar.style.width = ((30-countdown)/30*100)+"%";
     bar.textContent = countdown>0? `${countdown}s` : "Depositing...";
     if(countdown<=0){
       clearInterval(interval);
